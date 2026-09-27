@@ -1,5 +1,9 @@
-# Preview Automotivo — Zenfy
+# Preview Automotivo — Agência
 
-Dois previews comerciais de landing page para estética automotiva e auto center.
+Dois previews comerciais de landing page para o nicho **estética automotiva e auto center**.
 
-Criado pela Zenfy — Andrey Simoneto e Pedro Henrique.
+- `index.html` — Preview 01
+- `preview-2.html` — Preview 02
+- `vercel.json` — configuração para publicação
+
+Projeto demonstrativo da **Agência** — Andrey Simoneto e Pedro Henrique.
