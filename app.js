@@ -1,14 +1,1 @@
-
-const nav=document.querySelector('.site-nav');
-const menuBtn=document.querySelector('.menu-btn');
-const navLinks=document.querySelector('.nav-links');
-window.addEventListener('scroll',()=>nav?.classList.toggle('scrolled',window.scrollY>20),{passive:true});
-menuBtn?.addEventListener('click',()=>navLinks?.classList.toggle('open'));
-document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>navLinks?.classList.remove('open')));
-const io=new IntersectionObserver((entries)=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
-  const id=a.getAttribute('href'); if(id.length<2)return;
-  const el=document.querySelector(id); if(!el)return;
-  e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'});
-}));
+const bar=document.querySelector('.sitebar'),menu=document.querySelector('.menu'),nav=document.querySelector('.nav');window.addEventListener('scroll',()=>bar?.classList.toggle('scrolled',scrollY>24),{passive:true});menu?.addEventListener('click',()=>nav?.classList.toggle('open'));document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>nav?.classList.remove('open')));const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(x=>io.observe(x));const range=document.querySelector('#compareRange'),wrap=document.querySelector('.after-wrap'),line=document.querySelector('.compare-line'),box=document.querySelector('.compare');function updateCompare(){if(!range||!wrap||!line||!box)return;wrap.style.width=range.value+'%';line.style.left=range.value+'%';wrap.querySelector('img').style.width=box.clientWidth+'px'}range?.addEventListener('input',updateCompare);window.addEventListener('resize',updateCompare);updateCompare();document.querySelectorAll('[data-wa]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(a.dataset.wa||'Olá! Vim pelo site e quero saber mais.'),'_blank','noopener')}));const form=document.querySelector('#bookingForm');form?.addEventListener('submit',e=>{e.preventDefault();const d=new FormData(form);const msg=`Olá! Quero solicitar um orçamento.\nNome: ${d.get('nome')}\nVeículo: ${d.get('veiculo')}\nServiço: ${d.get('servico')}\nObservação: ${d.get('obs')||'-'}`;window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(msg),'_blank','noopener')});
